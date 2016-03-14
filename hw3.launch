@@ -1,0 +1,14 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="/home/charles/catkin_ws/src/homework2/hw3.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+	<node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node"/>
+	<node name="move_create" pkg="homework2" type="hw3_node" output="screen"/>
+	<node name="mapping" pkg="gmapping" type="slam_mapping"/>
+	<node name="robotVis" pkg="rviz" type="rviz"/>
+</launch>
